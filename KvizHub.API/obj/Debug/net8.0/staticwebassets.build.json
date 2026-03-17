@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "fn8TlQ+dm6Godq7XpSukhJhBi/wFIhzXCXU86qcCsEU=",
+  "Source": "KvizHub.API",
+  "BasePath": "_content/KvizHub.API",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
