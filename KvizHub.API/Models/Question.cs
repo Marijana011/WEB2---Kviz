@@ -1,4 +1,6 @@
-﻿namespace KvizHub.API.Models
+﻿using System.Text.Json.Serialization;
+
+namespace KvizHub.API.Models
 {
     public class Question
     {
@@ -12,6 +14,8 @@
         public string OptionD { get; set; } = string.Empty;
         public string CorrectAnswer { get; set; } = string.Empty;
         public int QuizId { get; set; }
+
+        [JsonIgnore]
         public Quiz Quiz { get; set; }
 
     }

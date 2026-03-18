@@ -1,10 +1,3 @@
-E:\FAKS\WEB2\KvizHub.API\obj\Debug\net8.0\KvizHub.API.csproj.AssemblyReference.cache
-E:\FAKS\WEB2\KvizHub.API\obj\Debug\net8.0\KvizHub.API.GeneratedMSBuildEditorConfig.editorconfig
-E:\FAKS\WEB2\KvizHub.API\obj\Debug\net8.0\KvizHub.API.AssemblyInfoInputs.cache
-E:\FAKS\WEB2\KvizHub.API\obj\Debug\net8.0\KvizHub.API.AssemblyInfo.cs
-E:\FAKS\WEB2\KvizHub.API\obj\Debug\net8.0\KvizHub.API.csproj.CoreCompileInputs.cache
-E:\FAKS\WEB2\KvizHub.API\obj\Debug\net8.0\KvizHub.API.MvcApplicationPartsAssemblyInfo.cs
-E:\FAKS\WEB2\KvizHub.API\obj\Debug\net8.0\KvizHub.API.MvcApplicationPartsAssemblyInfo.cache
 E:\FAKS\WEB2\KvizHub.API\bin\Debug\net8.0\appsettings.Development.json
 E:\FAKS\WEB2\KvizHub.API\bin\Debug\net8.0\appsettings.json
 E:\FAKS\WEB2\KvizHub.API\bin\Debug\net8.0\KvizHub.API.staticwebassets.endpoints.json
@@ -99,6 +92,14 @@ E:\FAKS\WEB2\KvizHub.API\bin\Debug\net8.0\ru\Microsoft.CodeAnalysis.Workspaces.r
 E:\FAKS\WEB2\KvizHub.API\bin\Debug\net8.0\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 E:\FAKS\WEB2\KvizHub.API\bin\Debug\net8.0\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 E:\FAKS\WEB2\KvizHub.API\bin\Debug\net8.0\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
+E:\FAKS\WEB2\KvizHub.API\obj\Debug\net8.0\KvizHub.API.csproj.AssemblyReference.cache
+E:\FAKS\WEB2\KvizHub.API\obj\Debug\net8.0\KvizHub.API.GeneratedMSBuildEditorConfig.editorconfig
+E:\FAKS\WEB2\KvizHub.API\obj\Debug\net8.0\KvizHub.API.AssemblyInfoInputs.cache
+E:\FAKS\WEB2\KvizHub.API\obj\Debug\net8.0\KvizHub.API.AssemblyInfo.cs
+E:\FAKS\WEB2\KvizHub.API\obj\Debug\net8.0\KvizHub.API.csproj.CoreCompileInputs.cache
+E:\FAKS\WEB2\KvizHub.API\obj\Debug\net8.0\KvizHub.API.MvcApplicationPartsAssemblyInfo.cs
+E:\FAKS\WEB2\KvizHub.API\obj\Debug\net8.0\KvizHub.API.MvcApplicationPartsAssemblyInfo.cache
+E:\FAKS\WEB2\KvizHub.API\obj\Debug\net8.0\KvizHub.API.sourcelink.json
 E:\FAKS\WEB2\KvizHub.API\obj\Debug\net8.0\scopedcss\bundle\KvizHub.API.styles.css
 E:\FAKS\WEB2\KvizHub.API\obj\Debug\net8.0\staticwebassets.build.json
 E:\FAKS\WEB2\KvizHub.API\obj\Debug\net8.0\staticwebassets.development.json

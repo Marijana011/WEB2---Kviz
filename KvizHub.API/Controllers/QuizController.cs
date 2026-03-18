@@ -1,6 +1,8 @@
 ﻿using KvizHub.API.DTOs;
 using KvizHub.API.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+
 
 
 namespace KvizHub.API.Controllers
@@ -21,5 +23,37 @@ namespace KvizHub.API.Controllers
             await _quizService.CreateQuiz(dto);
             return Ok("Quiz added");
         }
+
+        [HttpGet("{id}")]
+        public async Task<IActionResult> GetQuiz(int id)
+        {
+            var quiz = await _quizService.GetQuizId(id);
+
+            if (quiz == null)
+            {
+                return NotFound();
+            }
+            return Ok(quiz);
+        }
+
+        [HttpPost("submit")]
+        [Authorize]
+        public async Task<IActionResult> SubmitQuiz(SubmitQuizDto dto)
+        {
+            var email = User.Identity.Name;
+
+            var result = await _quizService.SubmitQuiz(dto, email);
+            return Ok(result);
+
+        }
+
+
+        [HttpGet("{id}/results")]
+        public async Task<IActionResult> GetResult(int id)
+        {
+            var results = await _quizService.GetResultByQuiz(id);
+            return Ok(results);
+        }
+    
     }
 }
