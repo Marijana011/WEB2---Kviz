@@ -65,6 +65,16 @@
   },
   {
     "ContainingType": "KvizHub.API.Controllers.QuizController",
+    "Method": "GetAllQuizzes",
+    "RelativePath": "api/Quiz",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "KvizHub.API.Controllers.QuizController",
     "Method": "GetQuiz",
     "RelativePath": "api/Quiz/{id}",
     "HttpMethod": "GET",

@@ -54,6 +54,13 @@ namespace KvizHub.API.Controllers
             var results = await _quizService.GetResultByQuiz(id);
             return Ok(results);
         }
+
+        [HttpGet]
+        public async Task<IActionResult> GetAllQuizzes()
+        {
+            var quizzes = await _quizService.GetAllQuizzes();
+            return Ok(quizzes);
+        }
     
     }
 }

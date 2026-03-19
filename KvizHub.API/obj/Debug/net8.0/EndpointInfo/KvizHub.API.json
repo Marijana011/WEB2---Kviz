@@ -127,6 +127,16 @@
             "description": "Success"
           }
         }
+      },
+      "get": {
+        "tags": [
+          "Quiz"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
       }
     },
     "/api/Quiz/{id}": {

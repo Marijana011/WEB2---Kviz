@@ -90,5 +90,10 @@ namespace KvizHub.API.Services
 
             return results;
         }
+
+        public async Task<List<Quiz>> GetAllQuizzes()
+        {
+            return await _context.Quizzes.ToListAsync();
+        }
     }
 }
