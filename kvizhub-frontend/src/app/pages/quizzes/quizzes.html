@@ -1,1 +1,8 @@
-<p>quizzes works!</p>
+<h2>Lista kvizova</h2>
+@if (quizzes.length > 0) {
+  @for (quiz of quizzes; track quiz.id) {
+    <p>{{ quiz.title }}</p>
+  }
+} @else {
+  <p>Nema kvizova</p>
+}

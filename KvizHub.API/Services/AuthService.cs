@@ -40,7 +40,7 @@ namespace KvizHub.API.Services
 
         public async Task<string?> Login(LoginDto dto)
         {
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == dto.Email);
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == dto.Username);
 
             if (user == null)
             {

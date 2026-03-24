@@ -37,7 +37,7 @@ namespace KvizHub.API.Controllers
         }
 
         [HttpPost("submit")]
-        [Authorize]
+        
         public async Task<IActionResult> SubmitQuiz(SubmitQuizDto dto)
         {
             var email = User.Identity.Name;

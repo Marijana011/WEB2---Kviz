@@ -116,4 +116,3 @@ E:\FAKS\WEB2\KvizHub.API\obj\Debug\net8.0\refint\KvizHub.API.dll
 E:\FAKS\WEB2\KvizHub.API\obj\Debug\net8.0\KvizHub.API.pdb
 E:\FAKS\WEB2\KvizHub.API\obj\Debug\net8.0\KvizHub.API.genruntimeconfig.cache
 E:\FAKS\WEB2\KvizHub.API\obj\Debug\net8.0\ref\KvizHub.API.dll
-E:\FAKS\WEB2\KvizHub.API\obj\Debug\net8.0\staticwebassets.upToDateCheck.txt

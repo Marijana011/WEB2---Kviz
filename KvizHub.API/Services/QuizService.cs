@@ -19,7 +19,7 @@ namespace KvizHub.API.Services
         {
             var quiz = new Quiz
             {
-                Tiitle = dto.Title,
+                Title = dto.Title,
                 Description = dto.Description,
                 Difficulty = dto.Difficulty,
                 TimeLimit = dto.TimeLimit,

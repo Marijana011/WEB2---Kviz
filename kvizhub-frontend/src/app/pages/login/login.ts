@@ -20,8 +20,9 @@ export class Login {
     this.api.login({
       username: this.username,
       password: this.password
-    }).subscribe(res => {
-      console.log(res);
+    }).subscribe((res: any) => {
+      localStorage.setItem('token', res.result);
+      console.log('Token saved:', res.result);
     });
   }
 }
