@@ -25,12 +25,19 @@ namespace KvizHub.API.Services
 
         public async Task Register(RegisterDto dto)
         {
+            var existingUser = await _context.Users.FirstOrDefaultAsync(x => x.Username == dto.Username);
+
+            if (existingUser != null)
+            {
+                throw new Exception("Username already exists");
+            }
+
             var user = new User
             {
                 Username = dto.Username,
                 Email = dto.Email,
                 PasswordHash = BCrypt.Net.BCrypt.HashPassword(dto.Password),
-                ImageUri = "",
+                ImageUri = dto.ImageUri,
                 Role = "User"
             };
 

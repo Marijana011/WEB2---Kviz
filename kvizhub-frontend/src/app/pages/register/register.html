@@ -1,1 +1,13 @@
-<p>register works!</p>
+<div class="login-container">
+  <div class="login-box">
+    <h1>Register</h1>
+
+    <input type="text" placeholder="Enter username" [(ngModel)]="username" />
+    <input type="password" placeholder="Enter password" [(ngModel)]="password" />
+    <input type="password" placeholder="Confirm Password" [(ngModel)]="confirmPassword" />
+    <input type="email" placeholder="Email" [(ngModel)]="email" />
+    <input type="text" placeholder="Image URL" [(ngModel)]="imageUri"/>
+    
+    <button (click)="register()">Register</button>
+  </div>
+</div>

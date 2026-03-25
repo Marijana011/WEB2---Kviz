@@ -1,8 +1,8 @@
-<h2>Lista kvizova</h2>
-@if (quizzes.length > 0) {
-  @for (quiz of quizzes; track quiz.id) {
-    <p>{{ quiz.title }}</p>
-  }
-} @else {
-  <p>Nema kvizova</p>
-}
+<div *ngFor="let quiz of quizzes">
+  <h3>{{ quiz.title }}</h3>
+  <p>{{ quiz.description }}</p>
+  <p>{{ quiz.difficulty }}</p>
+  <p>{{ quiz.category }}</p>
+</div>
+
+<button>Open Quiz</button>

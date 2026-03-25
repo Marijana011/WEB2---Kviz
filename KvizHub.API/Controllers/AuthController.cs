@@ -19,7 +19,7 @@ namespace KvizHub.API.Controllers
         public async Task<IActionResult> Register(RegisterDto dto)
         {
             await _authService.Register(dto);
-            return Ok("User registered successfully");
+            return Ok(new {message = "User registered successfully"});
         }
 
         [HttpPost("login")]

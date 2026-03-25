@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "E:\\FAKS\\WEB2\\KvizHub.API\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{FAF599E5-3641-22FA-9555-3A4F06B26909}|KvizHub.API.csproj|e:\\faks\\web2\\kvizhub.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FAF599E5-3641-22FA-9555-3A4F06B26909}|KvizHub.API.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{FAF599E5-3641-22FA-9555-3A4F06B26909}|KvizHub.API.csproj|e:\\faks\\web2\\kvizhub.api\\models\\quiz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FAF599E5-3641-22FA-9555-3A4F06B26909}|KvizHub.API.csproj|solutionrelative:models\\quiz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -28,10 +32,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{FAF599E5-3641-22FA-9555-3A4F06B26909}|KvizHub.API.csproj|e:\\faks\\web2\\kvizhub.api\\dtos\\submitquizdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FAF599E5-3641-22FA-9555-3A4F06B26909}|KvizHub.API.csproj|solutionrelative:dtos\\submitquizdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{FAF599E5-3641-22FA-9555-3A4F06B26909}|KvizHub.API.csproj|e:\\faks\\web2\\kvizhub.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FAF599E5-3641-22FA-9555-3A4F06B26909}|KvizHub.API.csproj|solutionrelative:program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FAF599E5-3641-22FA-9555-3A4F06B26909}|KvizHub.API.csproj|e:\\faks\\web2\\kvizhub.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -117,11 +117,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 16,
+          "SelectedChildIndex": 24,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "20260324181915_RenameTiiitleToTitle.cs",
               "DocumentMoniker": "E:\\FAKS\\WEB2\\KvizHub.API\\Migrations\\20260324181915_RenameTiiitleToTitle.cs",
               "RelativeDocumentMoniker": "Migrations\\20260324181915_RenameTiiitleToTitle.cs",
@@ -129,12 +129,11 @@
               "RelativeToolTip": "Migrations\\20260324181915_RenameTiiitleToTitle.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-24T18:19:41.367Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-24T18:19:41.367Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "20260313172619_InitialCreate.cs",
               "DocumentMoniker": "E:\\FAKS\\WEB2\\KvizHub.API\\Migrations\\20260313172619_InitialCreate.cs",
               "RelativeDocumentMoniker": "Migrations\\20260313172619_InitialCreate.cs",
@@ -142,12 +141,11 @@
               "RelativeToolTip": "Migrations\\20260313172619_InitialCreate.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-24T18:19:30.934Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-24T18:19:30.934Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "Microsoft.Common.CurrentVersion.targets",
               "DocumentMoniker": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
               "ToolTip": "C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\MSBuild\\Current\\Bin\\amd64\\Microsoft.Common.CurrentVersion.targets",
@@ -181,7 +179,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "SubmitQuizDto.cs",
               "DocumentMoniker": "E:\\FAKS\\WEB2\\KvizHub.API\\DTOs\\SubmitQuizDto.cs",
               "RelativeDocumentMoniker": "DTOs\\SubmitQuizDto.cs",
@@ -277,7 +275,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "QuizController.cs",
               "DocumentMoniker": "E:\\FAKS\\WEB2\\KvizHub.API\\Controllers\\QuizController.cs",
               "RelativeDocumentMoniker": "Controllers\\QuizController.cs",
@@ -285,8 +283,7 @@
               "RelativeToolTip": "Controllers\\QuizController.cs",
               "ViewState": "AgIAACIAAAAAAAAAAAAiwC0AAAAeAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-17T12:47:13.568Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-17T12:47:13.568Z"
             },
             {
               "$type": "Document",
@@ -298,8 +295,7 @@
               "RelativeToolTip": "Services\\QuizService.cs",
               "ViewState": "AgIAAFMAAAAAAAAAAAAcwF8AAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-17T12:42:12.807Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-17T12:42:12.807Z"
             },
             {
               "$type": "Document",
@@ -315,16 +311,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Quiz.cs",
               "DocumentMoniker": "E:\\FAKS\\WEB2\\KvizHub.API\\Models\\Quiz.cs",
               "RelativeDocumentMoniker": "Models\\Quiz.cs",
               "ToolTip": "E:\\FAKS\\WEB2\\KvizHub.API\\Models\\Quiz.cs",
               "RelativeToolTip": "Models\\Quiz.cs",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAAwAYAAAAbAAAAAAAAAA==",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAAwA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-17T12:27:59.934Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-03-17T12:27:59.934Z"
             },
             {
               "$type": "Document",
@@ -388,7 +383,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "KvizHub.API.csproj",
               "DocumentMoniker": "E:\\FAKS\\WEB2\\KvizHub.API\\KvizHub.API.csproj",
               "RelativeDocumentMoniker": "KvizHub.API.csproj",
@@ -412,15 +407,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 0,
               "Title": "Program.cs",
               "DocumentMoniker": "E:\\FAKS\\WEB2\\KvizHub.API\\Program.cs",
               "RelativeDocumentMoniker": "Program.cs",
               "ToolTip": "E:\\FAKS\\WEB2\\KvizHub.API\\Program.cs",
               "RelativeToolTip": "Program.cs",
-              "ViewState": "AgIAAFsAAAAAAAAAAAAcwGgAAAAKAAAAAAAAAA==",
+              "ViewState": "AgIAAFsAAAAAAAAAAAAcwGgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-13T18:05:13.149Z"
+              "WhenOpened": "2026-03-13T18:05:13.149Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
