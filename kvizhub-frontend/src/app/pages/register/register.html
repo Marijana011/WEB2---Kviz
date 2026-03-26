@@ -1,13 +1,26 @@
-<div class="login-container">
-  <div class="login-box">
-    <h1>Register</h1>
+<div class="register-container">
+  <div class="register-card">
+    <h2>Create Account</h2>
 
-    <input type="text" placeholder="Enter username" [(ngModel)]="username" />
-    <input type="password" placeholder="Enter password" [(ngModel)]="password" />
+    <input type="text" placeholder="Username" [(ngModel)]="username" />
+    <p *ngIf="usernameError" class="error">{{ usernameError }}</p>
+
+    <input type="password" placeholder="Password" [(ngModel)]="password" />
+    <p *ngIf="passwordError" class="error">{{ passwordError }}</p>
+
     <input type="password" placeholder="Confirm Password" [(ngModel)]="confirmPassword" />
+
     <input type="email" placeholder="Email" [(ngModel)]="email" />
-    <input type="text" placeholder="Image URL" [(ngModel)]="imageUri"/>
-    
+    <p *ngIf="emailError" class="error">{{ emailError }}</p>
+
+    <input type="file" (change)="onFileSelected($event)" />
+
+    <img *ngIf="imagePreview" [src]="imagePreview" width="120" class="preview-image" />
+
     <button (click)="register()">Register</button>
+
+    <p *ngIf="generalError" class="error">{{ generalError }}</p>
+
+    <p class="login-link" (click)="goToLogin()">Already have an account? Login</p>
   </div>
 </div>

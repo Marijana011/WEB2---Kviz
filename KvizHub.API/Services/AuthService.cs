@@ -25,11 +25,14 @@ namespace KvizHub.API.Services
 
         public async Task Register(RegisterDto dto)
         {
-            var existingUser = await _context.Users.FirstOrDefaultAsync(x => x.Username == dto.Username);
-
-            if (existingUser != null)
+            if (_context.Users.Any(u => u.Username == dto.Username))
             {
                 throw new Exception("Username already exists");
+            }
+
+            if (_context.Users.Any(u => u.Email == dto.Email))
+            {
+                throw new Exception("Email already exists");
             }
 
             var user = new User

@@ -14,8 +14,14 @@ export class Quizzes implements OnInit{
 
   quizzes: any[] = [];
 
+  username = '';
+  imageUri = '';
+
+
   ngOnInit() {
     this.api.getQuizzes().subscribe((res: any) => {
+      this.username = localStorage.getItem('username') || '';
+      this.imageUri = localStorage.getItem('imageUri') || '';
       console.log(res);
       
       this.quizzes = res;

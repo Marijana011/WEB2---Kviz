@@ -30,6 +30,8 @@ export class Login {
     }).subscribe({
     next: (res: any) => {
       localStorage.setItem('token', res.result);
+      localStorage.setItem('username', this.username);
+      localStorage.setItem('imageUri', res.imageUri || '');
       this.router.navigate(['/quizzes']);
     },
     error: () => {

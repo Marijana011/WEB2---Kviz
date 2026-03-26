@@ -2,10 +2,11 @@ import { Component, inject } from '@angular/core';
 import { FormsModule } from "@angular/forms";
 import { Router } from '@angular/router';
 import { ApiService } from '../../services/api';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-register',
-  imports: [FormsModule],
+  imports: [FormsModule, CommonModule],
   templateUrl: './register.html',
   styleUrl: './register.css',
 })
@@ -15,35 +16,90 @@ export class Register {
   router = inject(Router);
 
   username = '';
+
+  goToLogin() {
+        this.router.navigate(['/login']);
+  }
+
   password = '';
   confirmPassword = '';
   email = '';
   imageUri = '';
 
-  register() {
-    if(!this.email.includes('@')){
-      alert('Enter valid email');
-      return;   
-    }
+  usernameError = '';
+  emailError = '';
+  passwordError = '';
+  generalError = '';
 
-    if(this.password.length < 8){
-      alert('Password must have at least 8 characters');
+  selectedFile: File | null = null;
+  imagePreview: string | ArrayBuffer | null = null;
+
+  
+
+  onFileSelected(event: any){
+    const file = event.target.files[0];
+
+    if(file)
+    {
+      this.selectedFile = file;
+
+      const reader = new FileReader();
+
+      reader.onload = () => {
+        this.imagePreview = reader.result;
+      };
+      reader.readAsDataURL(file);
+    }
+  }
+
+
+  register() {
+    this.usernameError = '';
+    this.emailError = '';
+    this.passwordError = '';
+    this.generalError = '';
+
+    if (!this.username.trim()) {
+      this.usernameError = 'Enter username';
+      return;
+      }
+
+    if (this.password.length < 8) {
+      this.passwordError = 'Password must have at least 8 characters';
       return;
     }
 
     if (this.password !== this.confirmPassword) {
-    alert('Passwords do not match');
-    return;
-  }
+      this.passwordError = 'Passwords do not match';
+      return;
+    }
 
-  this.api.register({
+    if (!this.email.includes('@')) {
+      this.emailError = 'Enter valid email';
+      return;
+    }
+
+   this.api.register({
     username: this.username,
     email: this.email,
     password: this.password,
-    imageUri: this.imageUri
-  }).subscribe(() => {
-    this.router.navigate(['/login']);
+    imageUri: this.imagePreview
+    }).subscribe({
+      next: () => {
+        alert('Registration successful');   
+        this.router.navigate(['/login']);   
+    },
+    error: (err: any) => {
+      if(err.error.includes('Username')){
+        this.usernameError = err.error;
+      }else if(err.error.includes('Email')){
+        this.emailError = err.error;
+      }else{
+        this.generalError = err.error;
+      }
+
+    }
   });
-  }
+}
 
 }
