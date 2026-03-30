@@ -7,5 +7,7 @@
         public string Difficulty {  get; set; } = string.Empty;
         public int TimeLimit { get; set; }
         public string Category {  get; set; } = string.Empty;
+
+        public List<CreateQuestionDto> Questions { get; set; }
     }
 }

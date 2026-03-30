@@ -1,13 +1,28 @@
-<div class="user-box">
-  <img [src]="imageUri" width="70" *ngIf="imageUri">
-  <p>{{username}}</p>
-</div>
+<div class="page-container">
 
-<div *ngFor="let quiz of quizzes">
-  <h3>{{ quiz.title }}</h3>
-  <p>{{ quiz.description }}</p>
-  <p>{{ quiz.difficulty }}</p>
-  <p>{{ quiz.category }}</p>
-</div>
+  <div class="profile-box">
+    <img [src]="imageUri" class="profile-image">
 
-<button>Open Quiz</button>
+    <div class="profile-info">
+      <h3>{{username}}</h3>
+      <p>{{email}}</p>
+      <p *ngIf="role === 'Admin'">👑 Admin</p>
+      <p *ngIf="role === 'User'">👤 User</p>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button *ngIf="role === 'Admin'" (click)="goToCreateQuiz()">
+      Create Quiz
+    </button>
+  </div>
+
+  <div class="quiz-grid">
+    <div *ngFor="let quiz of quizzes" class="quiz-card">
+      <h4>{{quiz.title}}</h4>
+      <p>{{quiz.description}}</p>
+      <button (click)="openQuiz(quiz.id)">Open Quiz</button>
+    </div>
+  </div>
+
+</div>

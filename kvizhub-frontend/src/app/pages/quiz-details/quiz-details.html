@@ -1,0 +1,20 @@
+<div *ngIf="quiz" class="quiz-details">
+
+<div class="quiz-header">
+  <h2>{{quiz.title}}</h2>
+  <p>{{quiz.description}}</p>
+</div>
+  <div *ngFor="let question of quiz.questions" class="question-box">
+
+    <h4>{{question.text}}</h4>
+
+    <button>{{question.optionA}}</button>
+    <button>{{question.optionB}}</button>
+    <button>{{question.optionC}}</button>
+    <button>{{question.optionD}}</button>
+
+  </div>
+
+  <button class="back-btn" (click)="goBack()">Back</button>
+
+</div>

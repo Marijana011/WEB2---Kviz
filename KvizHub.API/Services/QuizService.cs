@@ -1,6 +1,7 @@
 ﻿using KvizHub.API.Data;
 using KvizHub.API.DTOs;
 using KvizHub.API.Models;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
 
 
@@ -22,8 +23,16 @@ namespace KvizHub.API.Services
                 Title = dto.Title,
                 Description = dto.Description,
                 Difficulty = dto.Difficulty,
-                TimeLimit = dto.TimeLimit,
-                Category = dto.Category
+                Questions = dto.Questions.Select(q => new Question
+                {
+                    Text = q.Text,
+                    Type = q.Type,
+                    OptionA = q.OptionA,
+                    OptionB = q.OptionB,
+                    OptionC = q.OptionC,
+                    OptionD = q.OptionD,
+                    CorrectAnswer = q.CorrectAnswer
+                }).ToList()
             };
 
             _context.Quizzes.Add(quiz);
@@ -32,9 +41,11 @@ namespace KvizHub.API.Services
 
         public async Task<Quiz?> GetQuizId(int id)
         {
-            return await _context.Quizzes.
-                Include(q => q.Questions).
-                FirstOrDefaultAsync(q => q.Id == id); 
+            var quiz = await _context.Quizzes.
+                Include(q => q.Questions)
+                .FirstOrDefaultAsync(q => q.Id == id);
+
+            return quiz;
         }
 
         public async Task<object> SubmitQuiz(SubmitQuizDto dto, string email)

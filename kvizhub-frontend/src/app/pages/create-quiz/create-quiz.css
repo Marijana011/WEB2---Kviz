@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+* {
+  font-family: 'Poppins', sans-serif;
+}
+
+.create-quiz-container {
+  max-width: 700px;
+  margin: 40px auto;
+  padding: 30px;
+  background: linear-gradient(135deg, #dbeafe, #bfdbfe);
+  border-radius: 20px;
+}
+
+input, select {
+  width: 100%;
+  margin: 10px 0;
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+}
+
+.question-card {
+  background: white;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 15px;
+}
+
+button {
+  margin-top: 15px;
+  margin-right: 10px;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}

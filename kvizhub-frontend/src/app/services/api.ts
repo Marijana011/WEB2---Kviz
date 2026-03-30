@@ -32,4 +32,12 @@ export class ApiService {
   getResults(id: number) {
     return this.http.get(`${this.baseUrl}/Quiz/${id}/results`);
   }
+
+  getQuizById(id: any){
+    return this.http.get(`${this.baseUrl}/Quiz/${id}`);
+  }
+
+  createQuiz(data: any) {
+    return this.http.post('http://localhost:5234/api/quiz', data);
+  }
 }

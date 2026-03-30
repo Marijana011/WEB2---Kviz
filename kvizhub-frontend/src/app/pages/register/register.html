@@ -13,10 +13,13 @@
     <input type="email" placeholder="Email" [(ngModel)]="email" />
     <p *ngIf="emailError" class="error">{{ emailError }}</p>
 
-    <input type="file" (change)="onFileSelected($event)" />
-
-    <img *ngIf="imagePreview" [src]="imagePreview" width="120" class="preview-image" />
-
+    <img [src]="imagePreview" class="preview-image" />
+    <label class="upload-btn">
+      Choose Profile Image
+      <input type="file" (change)="onFileSelected($event)" hidden>
+    </label>
+    <div class="error">{{imageError}}</div>
+    
     <button (click)="register()">Register</button>
 
     <p *ngIf="generalError" class="error">{{ generalError }}</p>

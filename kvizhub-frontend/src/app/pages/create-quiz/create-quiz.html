@@ -1,0 +1,48 @@
+<div class="create-quiz-container">
+
+  <h2>Create Quiz</h2>
+
+  <input [(ngModel)]="title" placeholder="Quiz title">
+
+  <input [(ngModel)]="description" placeholder="Quiz description">
+
+  <input [(ngModel)]="difficulty" placeholder="Difficulty">
+
+  <div *ngFor="let question of questions; let i = index" class="question-card">
+
+    <h3>Question {{i + 1}}</h3>
+
+    <input [(ngModel)]="question.text" placeholder="Question text">
+
+    <select [(ngModel)]="question.type" name="type{{i}}">
+      <option value="Single">Single Choice</option>
+      <option value="Multiple">Multiple Choice</option>
+      <option value="TrueFalse">True / False</option>
+      <option value="Input">Input Question</option>
+    </select>
+
+    <div *ngIf="question.type === 'Single' || question.type === 'Multiple'">
+      <input [(ngModel)]="question.optionA" placeholder="Option A">
+      <input [(ngModel)]="question.optionB" placeholder="Option B">
+      <input [(ngModel)]="question.optionC" placeholder="Option C">
+      <input [(ngModel)]="question.optionD" placeholder="Option D">
+    </div>
+
+    <div *ngIf="question.type === 'TrueFalse'">
+      <p>Option A: True</p>
+      <p>Option B: False</p>
+    </div>
+
+    <div *ngIf="question.type === 'Input'">
+      <p>User enters text answer</p>
+    </div>
+
+    <input [(ngModel)]="question.correctAnswer" placeholder="Correct Answer">
+
+  </div>
+
+  <button (click)="addQuestion()">Add Question</button>
+
+  <button (click)="createQuiz()">Create Quiz</button>
+
+</div>

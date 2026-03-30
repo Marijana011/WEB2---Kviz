@@ -22,7 +22,7 @@ namespace KvizHub.API.Services
             _context = context;
             _configuration = configuration;
         }
-
+        
         public async Task Register(RegisterDto dto)
         {
             if (_context.Users.Any(u => u.Username == dto.Username))
@@ -48,7 +48,7 @@ namespace KvizHub.API.Services
             await _context.SaveChangesAsync();
         }
 
-        public async Task<string?> Login(LoginDto dto)
+        public async Task<object?> Login(LoginDto dto)
         {
             var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == dto.Username);
 
@@ -64,7 +64,7 @@ namespace KvizHub.API.Services
 
             var claims = new[]
             {   
-                new Claim(ClaimTypes.Name, user.Email),
+                new Claim(ClaimTypes.Name, user.Username),
                 new Claim(ClaimTypes.Role, user.Role)
             };
 
@@ -82,7 +82,13 @@ namespace KvizHub.API.Services
                 signingCredentials: creds
             );
 
-            return new JwtSecurityTokenHandler().WriteToken(token);
+            return new
+            {
+                result = new JwtSecurityTokenHandler().WriteToken(token),
+                imageUri = user.ImageUri,
+                role = user.Role,
+                email = user.Email
+            };
         }
     }
 }

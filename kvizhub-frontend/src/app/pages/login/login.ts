@@ -3,6 +3,7 @@ import { ApiService } from '../../services/api';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { email } from '@angular/forms/signals';
 
 @Component({
   selector: 'app-login',
@@ -22,6 +23,7 @@ export class Login {
 
   username = '';
   password = '';
+  
 
   login() {
     this.api.login({
@@ -32,6 +34,8 @@ export class Login {
       localStorage.setItem('token', res.result);
       localStorage.setItem('username', this.username);
       localStorage.setItem('imageUri', res.imageUri || '');
+      localStorage.setItem('role', res.role);
+      localStorage.setItem('email', res.email || '');
       this.router.navigate(['/quizzes']);
     },
     error: () => {

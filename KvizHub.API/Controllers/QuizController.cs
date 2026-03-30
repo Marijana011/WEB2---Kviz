@@ -1,7 +1,10 @@
-﻿using KvizHub.API.DTOs;
+﻿using KvizHub.API.Data;
+using KvizHub.API.DTOs;
+using KvizHub.API.Models;
 using KvizHub.API.Services;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 
 
 
@@ -21,7 +24,7 @@ namespace KvizHub.API.Controllers
         public async Task<IActionResult> CreateQuiz(CreateQuizDto dto)
         {
             await _quizService.CreateQuiz(dto);
-            return Ok("Quiz added");
+            return Ok("Quiz created");
         }
 
         [HttpGet("{id}")]

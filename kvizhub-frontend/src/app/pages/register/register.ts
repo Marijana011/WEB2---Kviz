@@ -3,6 +3,7 @@ import { FormsModule } from "@angular/forms";
 import { Router } from '@angular/router';
 import { ApiService } from '../../services/api';
 import { CommonModule } from '@angular/common';
+import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
   selector: 'app-register',
@@ -14,6 +15,7 @@ export class Register {
 
   api = inject(ApiService);
   router = inject(Router);
+  cdr = inject(ChangeDetectorRef);
 
   username = '';
 
@@ -30,9 +32,10 @@ export class Register {
   emailError = '';
   passwordError = '';
   generalError = '';
+  imageError = '';
 
   selectedFile: File | null = null;
-  imagePreview: string | ArrayBuffer | null = null;
+  imagePreview = 'https://cdn-icons-png.flaticon.com/512/149/149071.png';
 
   
 
@@ -40,13 +43,12 @@ export class Register {
     const file = event.target.files[0];
 
     if(file)
-    {
-      this.selectedFile = file;
-
+    {     
       const reader = new FileReader();
 
-      reader.onload = () => {
-        this.imagePreview = reader.result;
+      reader.onload = (e: any) => {
+        this.imagePreview = e.target.result;
+        this.cdr.detectChanges();
       };
       reader.readAsDataURL(file);
     }
@@ -58,6 +60,7 @@ export class Register {
     this.emailError = '';
     this.passwordError = '';
     this.generalError = '';
+    this.imageError = '';
 
     if (!this.username.trim()) {
       this.usernameError = 'Enter username';
@@ -76,6 +79,11 @@ export class Register {
 
     if (!this.email.includes('@')) {
       this.emailError = 'Enter valid email';
+      return;
+    }
+
+    if(!this.imagePreview){
+      this.imageError = 'Please choose profile image';
       return;
     }
 

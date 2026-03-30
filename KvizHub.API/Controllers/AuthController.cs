@@ -31,7 +31,7 @@ namespace KvizHub.API.Controllers
                 return Unauthorized("Invalid credentials");
             }
 
-            return Ok(new {result = result});
+            return Ok(result);
         }
     }
 }
