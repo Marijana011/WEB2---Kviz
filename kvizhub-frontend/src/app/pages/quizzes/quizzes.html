@@ -21,6 +21,11 @@
     <div *ngFor="let quiz of quizzes" class="quiz-card">
       <h4>{{quiz.title}}</h4>
       <p>{{quiz.description}}</p>
+
+      <span class="difficulty" [ngClass]="quiz.difficulty">
+        {{quiz.difficulty}}
+      </span>
+
       <button (click)="openQuiz(quiz.id)">Open Quiz</button>
     </div>
   </div>

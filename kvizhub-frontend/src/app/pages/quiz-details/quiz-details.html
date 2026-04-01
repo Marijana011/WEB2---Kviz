@@ -8,12 +8,48 @@
 
     <h4>{{question.text}}</h4>
 
-    <button>{{question.optionA}}</button>
-    <button>{{question.optionB}}</button>
-    <button>{{question.optionC}}</button>
-    <button>{{question.optionD}}</button>
+    <div *ngIf="question.type === 'Single'">
+      <label>
+        <input type="radio" name="q{{question.id}}" [value]="question.optionA">
+        {{question.optionA}}
+      </label>
 
+      <label>
+        <input type="radio" name="q{{question.id}}" [value]="question.optionB">
+        {{question.optionB}}
+      </label>
+
+      <label>
+        <input type="radio" name="q{{question.id}}" [value]="question.optionC">
+        {{question.optionC}}
+      </label>
+
+      <label>
+        <input type="radio" name="q{{question.id}}" [value]="question.optionD">
+        {{question.optionD}}
+      </label>
+    </div>
+
+  <div *ngIf="question.type === 'Multiple'">
+    <label><input type="checkbox"> {{question.optionA}}</label>
+    <label><input type="checkbox"> {{question.optionB}}</label>
+    <label><input type="checkbox"> {{question.optionC}}</label>
+    <label><input type="checkbox"> {{question.optionD}}</label>
   </div>
+
+  <div *ngIf="question.type === 'TrueFalse'">
+    <label><input type="radio" name="q{{question.id}}" value="True">True</label>
+    <label><input type="radio" name="q{{question.id}}" value="False">False</label>
+  </div>
+
+  <div *ngIf="question.type === 'Input'">
+  <input
+    type="text"
+    [(ngModel)]="question.userAnswer"
+    [name]="'answer' + question.id"
+    placeholder="Your answer">
+  </div>
+</div>
 
   <button class="back-btn" (click)="goBack()">Back</button>
 

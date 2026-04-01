@@ -24,7 +24,7 @@ namespace KvizHub.API.Controllers
         public async Task<IActionResult> CreateQuiz(CreateQuizDto dto)
         {
             await _quizService.CreateQuiz(dto);
-            return Ok("Quiz created");
+            return Ok(new {message = "Quiz created" });
         }
 
         [HttpGet("{id}")]

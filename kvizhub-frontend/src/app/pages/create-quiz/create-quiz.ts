@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { inject } from '@angular/core';
 import { ApiService } from '../../services/api';
 import { error } from 'console';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-quiz',
@@ -15,6 +16,7 @@ import { error } from 'console';
 export class CreateQuiz {
 
   api = inject(ApiService);
+  router = inject(Router);
 
   title = '';
   description = '';
@@ -54,6 +56,7 @@ export class CreateQuiz {
       next: (res) => {
         console.log(res);
         alert('Quiz create successfully');
+        this.router.navigate(['/quizzes']);
       },
       error: (err) => {
         console.log(err);

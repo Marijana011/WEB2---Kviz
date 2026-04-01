@@ -7,17 +7,18 @@
 .page-container {
   min-height: 100vh;
   padding: 40px;
-  background: linear-gradient(135deg, #99b1e4, #e5d5f3);
+  background: linear-gradient(135deg, #667eea, #764ba2);
 }
 
 .profile-box {
   display: flex;
   align-items: center;
   gap: 20px;
-  background: white;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
   padding: 20px;
   border-radius: 20px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+  color: white;
   margin-bottom: 30px;
 }
 
@@ -46,28 +47,37 @@
   padding: 12px 24px;
   border: none;
   border-radius: 12px;
-  background: #2563eb;
-  color: white;
+  background: white;
+  color: #764ba2;
   font-size: 16px;
+  font-weight: bold;
   cursor: pointer;
   transition: 0.3s;
 }
 
 .actions button:hover {
-  background: #1d4ed8;
+  transform: scale(1.05);
 }
 
 .quiz-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
   gap: 25px;
 }
 
 .quiz-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  min-height: 230px;
+  
+
   background: white;
-  padding: 20px;
+  padding: 22px;
   border-radius: 18px;
-  box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+  
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
   transition: 0.3s;
 }
 
@@ -76,24 +86,52 @@
 }
 
 .quiz-card h4 {
+  color: #764ba2;
   margin-bottom: 10px;
 }
 
 .quiz-card p {
-  color: #666;
-  margin-bottom: 15px;
+  color: #555;
+  flex-grow: 1;
 }
 
 .quiz-card button {
-  width: 100%;
-  padding: 10px;
-  border: none;
-  border-radius: 10px;
-  background: #10b981;
+  margin-top: 20px;
+
+  background: #667eea;
   color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 10px;
   cursor: pointer;
+  transition: 0.3s;
 }
 
 .quiz-card button:hover {
-  background: #059669;
+  background: #764ba2;
+}
+
+.difficulty {
+  display: inline-block;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: bold;
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+
+.Easy {
+  background: #d4edda;
+  color: #155724;
+}
+
+.Normal {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.Hard {
+  background: #f8d7da;
+  color: #721c24;
 }
