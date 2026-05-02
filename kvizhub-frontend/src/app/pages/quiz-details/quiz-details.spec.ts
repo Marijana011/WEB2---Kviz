@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { QuizDetails } from './quiz-details';
+import { interval } from 'rxjs';
 
 describe('QuizDetails', () => {
   let component: QuizDetails;

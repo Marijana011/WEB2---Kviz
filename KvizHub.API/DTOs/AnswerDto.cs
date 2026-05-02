@@ -4,5 +4,7 @@
     {
         public int QuestionId {  get; set; }
         public string Answer {  get; set; } = string.Empty;
+
+        public string Email {  get; set; } = string.Empty;
     }
 }

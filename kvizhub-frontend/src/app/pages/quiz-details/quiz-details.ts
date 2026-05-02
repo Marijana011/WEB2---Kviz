@@ -4,6 +4,7 @@ import { ApiService } from '../../services/api';
 import { CommonModule } from '@angular/common';
 import { ChangeDetectorRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { email } from '@angular/forms/signals';
 
 @Component({
   selector: 'app-quiz-detail',
@@ -21,23 +22,96 @@ export class QuizDetails implements OnInit {
 
   quiz: any;
 
+  timeLeft = 0;
+  
+  interval: any;
+
+  Math = Math
+
+  resultDetails: any[] = [];
+  score = 0;
+  total = 0;
+  showResult = false;
+
+  isSubmitted = false;
+
   ngOnInit() {
     const id = this.route.snapshot.paramMap.get('id');
 
     this.api.getQuizById(id).subscribe((res: any) => {
       this.quiz = res;
 
-      console.log(this.quiz.questions);
-
       this.quiz.questions.forEach((q: any) => {
       q.userAnswer = '';
       });
 
+      this.timeLeft = this.quiz.timeLimit;
       this.cdr.detectChanges();
+      this.startTimer();
+    }); 
+  }
+
+  startTimer(){
+    this.interval = setInterval(() => {
+      if(this.timeLeft > 0){
+        this.timeLeft--;
+        this.cdr.detectChanges();
+      }else{
+        clearInterval(this.interval);
+        this.submitQuiz();
+      }
+    }, 1000);
+  }
+
+  toggleMultipleAnswer(question: any, option: string){
+    if(!question.userAnswerArray){
+      question.userAnswerArray = [];
+    }
+
+    const index = question.userAnswerArray.indexOf(option);
+    if(index > -1){
+      question.userAnswerArray.splice(index, 1);
+    }else{
+      question.userAnswerArray.push(option);
+    }
+    question.userAnswer = question.userAnswerArray.join(',');
+  }
+
+
+  submitQuiz(){ 
+    if(this.isSubmitted) return;
+    this.isSubmitted = true;
+
+    clearInterval(this.interval);
+
+    const answers = this.quiz.questions.map((q:any) => ({
+      questionId: q.id,
+      answer: (q.userAnswer || '').trim()
+    }));
+    const payload = {
+      quizId: this.quiz.id,
+      answers: answers,
+      email: localStorage.getItem('email') || ''
+    };
+    console.log('PAYLOAD',payload);
+    console.log('QUIZ', this.quiz);
+    this.api.submitQuiz(payload).subscribe({
+      next: (res:any) => {
+        this.score = res.score;
+        this.total = res.total;
+        this.resultDetails = res.details;
+        this.showResult = true;
+
+        this.cdr.detectChanges();
+      },
+      error: (err) => {
+        console.log(err);
+        alert('Error submitting quiz');
+      }
     });
   }
 
   goBack(){
-    this.router.navigate(['/quizzes']);
+    this.router.navigate(['quizzes']);
   }
 }

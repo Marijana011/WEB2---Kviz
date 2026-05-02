@@ -5,6 +5,7 @@ import { inject } from '@angular/core';
 import { ApiService } from '../../services/api';
 import { error } from 'console';
 import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-create-quiz',
@@ -17,10 +18,9 @@ export class CreateQuiz {
 
   api = inject(ApiService);
   router = inject(Router);
+  location = inject(Location);
 
-  title = '';
-  description = '';
-  difficulty = '';
+  errorMessage = '';
 
   questions = [
     {
@@ -34,8 +34,50 @@ export class CreateQuiz {
     }
   ];
 
+  categories = [
+  'Programming',
+  'History',
+  'Science',
+  'Math',
+  'Geography'
+  ];
+
+  quiz = {
+  title: '',
+  description: '',
+  difficulty: '',
+  category: '', 
+  questions: [
+    {
+      text: '',
+      type: 'Single',
+      optionA: '',
+      optionB: '',
+      optionC: '',
+      optionD: '',
+      correctAnswer: ''
+    }
+  ]
+  };
+
+  goBack(){
+    this.location.back();
+  }
+
   addQuestion() {
-    this.questions.push({
+    const lastQuestion = this.quiz.questions[this.quiz.questions.length - 1];
+
+    if(!lastQuestion.text.trim() || !lastQuestion.correctAnswer.trim()){
+      this.errorMessage = 'Please fill current question first!';
+      return;
+    }
+
+    if(lastQuestion.type === 'Single' || lastQuestion.type === 'Multiple'){
+      this.errorMessage = 'Please fill current question first!';
+      return;
+    }
+
+    this.quiz.questions.push({
       text: '',
       type: 'Single',
       optionA: '',
@@ -46,22 +88,79 @@ export class CreateQuiz {
     });
   }
 
-  createQuiz() {
-    this.api.createQuiz({
-      title: this.title,
-      description: this.description,
-      difficulty: this.difficulty,
-      questions: this.questions
-    }).subscribe({
-      next: (res) => {
-        console.log(res);
-        alert('Quiz create successfully');
-        this.router.navigate(['/quizzes']);
-      },
-      error: (err) => {
-        console.log(err);
-        alert('Error created quiz');
-      }
-    });
+
+  isQuestionValid(q: any): boolean {
+
+  if (!q.text.trim()) return false;
+
+  if (q.type === 'Single') {
+    if (!q.optionA.trim() || !q.optionB.trim()) return false;
+    if (!q.correctAnswer.trim()) return false;
+
+    const options = [
+      q.optionA.trim(),
+      q.optionB.trim(),
+      q.optionC.trim(),
+      q.optionD.trim()
+    ].filter(o => o);
+
+    return options.includes(q.correctAnswer.trim());
   }
+
+  if (q.type === 'Multiple') {
+    if (!q.optionA.trim() || !q.optionB.trim()) return false;
+    if (!q.correctAnswer.trim()) return false;
+
+    return true;
+  }
+
+  if (q.type === 'TrueFalse') {
+    return q.correctAnswer === 'True' || q.correctAnswer === 'False';
+  }
+
+  if (q.type === 'Input') {
+    return q.correctAnswer.trim().length > 0;
+  }
+
+  return false;
+}
+
+  isLastQuestionValid(): boolean {
+  const q = this.quiz.questions[this.quiz.questions.length - 1];
+  return this.isQuestionValid(q);
+}
+
+  createQuiz() {
+    if (!this.quiz.title.trim() ||
+      !this.quiz.description.trim() ||
+      !this.quiz.difficulty ||
+      !this.quiz.category) {
+    alert('Please fill all quiz fields!');
+    return;
+  }
+
+  if (!this.quiz.questions || this.quiz.questions.length === 0) {
+    alert('Add at least one question!');
+    return;
+  }
+
+  const invalidIndex = this.quiz.questions.findIndex(q => !this.isQuestionValid(q));
+
+  if (invalidIndex !== -1) {
+  alert(`Question ${invalidIndex + 1} is not valid!`);
+  return;
+  }
+
+  this.api.createQuiz(this.quiz).subscribe({
+    next: (res) => {
+      console.log(res);
+      alert('Quiz created successfully');
+      this.router.navigate(['/quizzes']);
+    },
+    error: (err) => {
+      console.log(err);
+      alert('Error creating quiz');
+    }
+  });
+}
 }

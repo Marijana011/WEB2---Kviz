@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace KvizHub.API.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20260324181915_RenameTiiitleToTitle")]
-    partial class RenameTiiitleToTitle
+    [Migration("20260502190858_Init2")]
+    partial class Init2
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -125,6 +125,8 @@ namespace KvizHub.API.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("QuizId");
+
                     b.HasIndex("UserId");
 
                     b.ToTable("Results");
@@ -176,11 +178,19 @@ namespace KvizHub.API.Migrations
 
             modelBuilder.Entity("KvizHub.API.Models.Result", b =>
                 {
+                    b.HasOne("KvizHub.API.Models.Quiz", "Quiz")
+                        .WithMany()
+                        .HasForeignKey("QuizId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("KvizHub.API.Models.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Quiz");
 
                     b.Navigation("User");
                 });

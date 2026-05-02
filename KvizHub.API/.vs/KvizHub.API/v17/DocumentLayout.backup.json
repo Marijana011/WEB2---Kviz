@@ -3,36 +3,72 @@
   "WorkspaceRootPath": "E:\\FAKS\\WEB2\\KvizHub.API\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\FAKS\\WEB2\\KvizHub.API\\Migrations\\20260502181757_AddQuizNavigationToResult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:Migrations\\20260502181757_AddQuizNavigationToResult.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{FAF599E5-3641-22FA-9555-3A4F06B26909}|KvizHub.API.csproj|e:\\faks\\web2\\kvizhub.api\\services\\quizservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FAF599E5-3641-22FA-9555-3A4F06B26909}|KvizHub.API.csproj|solutionrelative:services\\quizservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FAF599E5-3641-22FA-9555-3A4F06B26909}|KvizHub.API.csproj|e:\\faks\\web2\\kvizhub.api\\controllers\\quizcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FAF599E5-3641-22FA-9555-3A4F06B26909}|KvizHub.API.csproj|solutionrelative:controllers\\quizcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FAF599E5-3641-22FA-9555-3A4F06B26909}|KvizHub.API.csproj|e:\\faks\\web2\\kvizhub.api\\services\\questionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FAF599E5-3641-22FA-9555-3A4F06B26909}|KvizHub.API.csproj|solutionrelative:services\\questionservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FAF599E5-3641-22FA-9555-3A4F06B26909}|KvizHub.API.csproj|e:\\faks\\web2\\kvizhub.api\\models\\result.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FAF599E5-3641-22FA-9555-3A4F06B26909}|KvizHub.API.csproj|solutionrelative:models\\result.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FAF599E5-3641-22FA-9555-3A4F06B26909}|KvizHub.API.csproj|e:\\faks\\web2\\kvizhub.api\\services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FAF599E5-3641-22FA-9555-3A4F06B26909}|KvizHub.API.csproj|solutionrelative:services\\authservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FAF599E5-3641-22FA-9555-3A4F06B26909}|KvizHub.API.csproj|e:\\faks\\web2\\kvizhub.api\\models\\question.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FAF599E5-3641-22FA-9555-3A4F06B26909}|KvizHub.API.csproj|solutionrelative:models\\question.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FAF599E5-3641-22FA-9555-3A4F06B26909}|KvizHub.API.csproj|e:\\faks\\web2\\kvizhub.api\\controllers\\quizcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FAF599E5-3641-22FA-9555-3A4F06B26909}|KvizHub.API.csproj|solutionrelative:controllers\\quizcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FAF599E5-3641-22FA-9555-3A4F06B26909}|KvizHub.API.csproj|e:\\faks\\web2\\kvizhub.api\\controllers\\questioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FAF599E5-3641-22FA-9555-3A4F06B26909}|KvizHub.API.csproj|solutionrelative:controllers\\questioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FAF599E5-3641-22FA-9555-3A4F06B26909}|KvizHub.API.csproj|e:\\faks\\web2\\kvizhub.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FAF599E5-3641-22FA-9555-3A4F06B26909}|KvizHub.API.csproj|solutionrelative:controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FAF599E5-3641-22FA-9555-3A4F06B26909}|KvizHub.API.csproj|e:\\faks\\web2\\kvizhub.api\\dtos\\createquizdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FAF599E5-3641-22FA-9555-3A4F06B26909}|KvizHub.API.csproj|solutionrelative:dtos\\createquizdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FAF599E5-3641-22FA-9555-3A4F06B26909}|KvizHub.API.csproj|e:\\faks\\web2\\kvizhub.api\\dtos\\createquestiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FAF599E5-3641-22FA-9555-3A4F06B26909}|KvizHub.API.csproj|solutionrelative:dtos\\createquestiondto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FAF599E5-3641-22FA-9555-3A4F06B26909}|KvizHub.API.csproj|e:\\faks\\web2\\kvizhub.api\\dtos\\submitquizdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FAF599E5-3641-22FA-9555-3A4F06B26909}|KvizHub.API.csproj|solutionrelative:dtos\\submitquizdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FAF599E5-3641-22FA-9555-3A4F06B26909}|KvizHub.API.csproj|e:\\faks\\web2\\kvizhub.api\\dtos\\answerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FAF599E5-3641-22FA-9555-3A4F06B26909}|KvizHub.API.csproj|solutionrelative:dtos\\answerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FAF599E5-3641-22FA-9555-3A4F06B26909}|KvizHub.API.csproj|e:\\faks\\web2\\kvizhub.api\\models\\question.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FAF599E5-3641-22FA-9555-3A4F06B26909}|KvizHub.API.csproj|solutionrelative:models\\question.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FAF599E5-3641-22FA-9555-3A4F06B26909}|KvizHub.API.csproj|e:\\faks\\web2\\kvizhub.api\\dtos\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FAF599E5-3641-22FA-9555-3A4F06B26909}|KvizHub.API.csproj|solutionrelative:dtos\\registerdto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{FAF599E5-3641-22FA-9555-3A4F06B26909}|KvizHub.API.csproj|e:\\faks\\web2\\kvizhub.api\\dtos\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FAF599E5-3641-22FA-9555-3A4F06B26909}|KvizHub.API.csproj|solutionrelative:dtos\\logindto.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FAF599E5-3641-22FA-9555-3A4F06B26909}|KvizHub.API.csproj|e:\\faks\\web2\\kvizhub.api\\models\\quiz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FAF599E5-3641-22FA-9555-3A4F06B26909}|KvizHub.API.csproj|solutionrelative:models\\quiz.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{FAF599E5-3641-22FA-9555-3A4F06B26909}|KvizHub.API.csproj|e:\\faks\\web2\\kvizhub.api\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{FAF599E5-3641-22FA-9555-3A4F06B26909}|KvizHub.API.csproj|solutionrelative:models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{FAF599E5-3641-22FA-9555-3A4F06B26909}|KvizHub.API.csproj|e:\\faks\\web2\\kvizhub.api\\controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FAF599E5-3641-22FA-9555-3A4F06B26909}|KvizHub.API.csproj|solutionrelative:controllers\\authcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{FAF599E5-3641-22FA-9555-3A4F06B26909}|KvizHub.API.csproj|e:\\faks\\web2\\kvizhub.api\\controllers\\testcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -41,16 +77,126 @@
   ],
   "DocumentGroupContainers": [
     {
-      "Orientation": 0,
+      "Orientation": 1,
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 200,
-          "SelectedChildIndex": 2,
+          "DockedHeight": 309,
+          "SelectedChildIndex": 11,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
+              "Title": "QuizController.cs",
+              "DocumentMoniker": "E:\\FAKS\\WEB2\\KvizHub.API\\Controllers\\QuizController.cs",
+              "RelativeDocumentMoniker": "Controllers\\QuizController.cs",
+              "ToolTip": "E:\\FAKS\\WEB2\\KvizHub.API\\Controllers\\QuizController.cs",
+              "RelativeToolTip": "Controllers\\QuizController.cs",
+              "ViewState": "AgIAAAwAAAAAAAAAAAAAACUAAAANAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-11T08:00:33.639Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "CreateQuestionDto.cs",
+              "DocumentMoniker": "E:\\FAKS\\WEB2\\KvizHub.API\\DTOs\\CreateQuestionDto.cs",
+              "RelativeDocumentMoniker": "DTOs\\CreateQuestionDto.cs",
+              "ToolTip": "E:\\FAKS\\WEB2\\KvizHub.API\\DTOs\\CreateQuestionDto.cs",
+              "RelativeToolTip": "DTOs\\CreateQuestionDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-05T14:38:58.568Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "CreateQuizDto.cs",
+              "DocumentMoniker": "E:\\FAKS\\WEB2\\KvizHub.API\\DTOs\\CreateQuizDto.cs",
+              "RelativeDocumentMoniker": "DTOs\\CreateQuizDto.cs",
+              "ToolTip": "E:\\FAKS\\WEB2\\KvizHub.API\\DTOs\\CreateQuizDto.cs",
+              "RelativeToolTip": "DTOs\\CreateQuizDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-05T14:38:57.417Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "LoginDto.cs",
+              "DocumentMoniker": "E:\\FAKS\\WEB2\\KvizHub.API\\DTOs\\LoginDto.cs",
+              "RelativeDocumentMoniker": "DTOs\\LoginDto.cs",
+              "ToolTip": "E:\\FAKS\\WEB2\\KvizHub.API\\DTOs\\LoginDto.cs",
+              "RelativeToolTip": "DTOs\\LoginDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-05T14:38:56.639Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "QuestionService.cs",
+              "DocumentMoniker": "E:\\FAKS\\WEB2\\KvizHub.API\\Services\\QuestionService.cs",
+              "RelativeDocumentMoniker": "Services\\QuestionService.cs",
+              "ToolTip": "E:\\FAKS\\WEB2\\KvizHub.API\\Services\\QuestionService.cs",
+              "RelativeToolTip": "Services\\QuestionService.cs",
+              "ViewState": "AgIAAAIAAAAAAAAAAAAcwBkAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-05T14:38:20.1Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Result.cs",
+              "DocumentMoniker": "E:\\FAKS\\WEB2\\KvizHub.API\\Models\\Result.cs",
+              "RelativeDocumentMoniker": "Models\\Result.cs",
+              "ToolTip": "E:\\FAKS\\WEB2\\KvizHub.API\\Models\\Result.cs",
+              "RelativeToolTip": "Models\\Result.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-05T14:29:36.846Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "AnswerDto.cs",
+              "DocumentMoniker": "E:\\FAKS\\WEB2\\KvizHub.API\\DTOs\\AnswerDto.cs",
+              "RelativeDocumentMoniker": "DTOs\\AnswerDto.cs",
+              "ToolTip": "E:\\FAKS\\WEB2\\KvizHub.API\\DTOs\\AnswerDto.cs",
+              "RelativeToolTip": "DTOs\\AnswerDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-02T18:20:11.966Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "SubmitQuizDto.cs",
+              "DocumentMoniker": "E:\\FAKS\\WEB2\\KvizHub.API\\DTOs\\SubmitQuizDto.cs",
+              "RelativeDocumentMoniker": "DTOs\\SubmitQuizDto.cs",
+              "ToolTip": "E:\\FAKS\\WEB2\\KvizHub.API\\DTOs\\SubmitQuizDto.cs",
+              "RelativeToolTip": "DTOs\\SubmitQuizDto.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-02T18:17:36.701Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "Quiz.cs",
+              "DocumentMoniker": "E:\\FAKS\\WEB2\\KvizHub.API\\Models\\Quiz.cs",
+              "RelativeDocumentMoniker": "Models\\Quiz.cs",
+              "ToolTip": "E:\\FAKS\\WEB2\\KvizHub.API\\Models\\Quiz.cs",
+              "RelativeToolTip": "Models\\Quiz.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-01T16:03:31.165Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
               "Title": "QuestionController.cs",
               "DocumentMoniker": "E:\\FAKS\\WEB2\\KvizHub.API\\Controllers\\QuestionController.cs",
               "RelativeDocumentMoniker": "Controllers\\QuestionController.cs",
@@ -62,32 +208,32 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 11,
               "Title": "Question.cs",
               "DocumentMoniker": "E:\\FAKS\\WEB2\\KvizHub.API\\Models\\Question.cs",
               "RelativeDocumentMoniker": "Models\\Question.cs",
               "ToolTip": "E:\\FAKS\\WEB2\\KvizHub.API\\Models\\Question.cs",
               "RelativeToolTip": "Models\\Question.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAABYAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA4AAAAjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-29T20:43:10.357Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "QuizService.cs",
               "DocumentMoniker": "E:\\FAKS\\WEB2\\KvizHub.API\\Services\\QuizService.cs",
               "RelativeDocumentMoniker": "Services\\QuizService.cs",
               "ToolTip": "E:\\FAKS\\WEB2\\KvizHub.API\\Services\\QuizService.cs",
               "RelativeToolTip": "Services\\QuizService.cs",
-              "ViewState": "AgIAABQAAAAAAAAAAAAUwCgAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAL8AAAAAAAAAAAAuwNUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-29T20:40:35.834Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 16,
               "Title": "AuthController.cs",
               "DocumentMoniker": "E:\\FAKS\\WEB2\\KvizHub.API\\Controllers\\AuthController.cs",
               "RelativeDocumentMoniker": "Controllers\\AuthController.cs",
@@ -99,7 +245,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 15,
               "Title": "User.cs",
               "DocumentMoniker": "E:\\FAKS\\WEB2\\KvizHub.API\\Models\\User.cs",
               "RelativeDocumentMoniker": "Models\\User.cs",
@@ -111,31 +257,19 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 17,
               "Title": "TestController.cs",
               "DocumentMoniker": "E:\\FAKS\\WEB2\\KvizHub.API\\Controllers\\TestController.cs",
               "RelativeDocumentMoniker": "Controllers\\TestController.cs",
               "ToolTip": "E:\\FAKS\\WEB2\\KvizHub.API\\Controllers\\TestController.cs",
               "RelativeToolTip": "Controllers\\TestController.cs",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAMAAAAAAAAAAIBJwAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-26T12:32:07.764Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "QuizController.cs",
-              "DocumentMoniker": "E:\\FAKS\\WEB2\\KvizHub.API\\Controllers\\QuizController.cs",
-              "RelativeDocumentMoniker": "Controllers\\QuizController.cs",
-              "ToolTip": "E:\\FAKS\\WEB2\\KvizHub.API\\Controllers\\QuizController.cs",
-              "RelativeToolTip": "Controllers\\QuizController.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAiwBoAAAAmAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-03-26T12:32:05.319Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 4,
               "Title": "AuthService.cs",
               "DocumentMoniker": "E:\\FAKS\\WEB2\\KvizHub.API\\Services\\AuthService.cs",
               "RelativeDocumentMoniker": "Services\\AuthService.cs",
@@ -147,7 +281,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 12,
               "Title": "RegisterDto.cs",
               "DocumentMoniker": "E:\\FAKS\\WEB2\\KvizHub.API\\DTOs\\RegisterDto.cs",
               "RelativeDocumentMoniker": "DTOs\\RegisterDto.cs",
@@ -156,6 +290,29 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAA8AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-03-25T22:31:08.388Z"
+            }
+          ]
+        },
+        {
+          "DockedHeight": 92,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "20260502181757_AddQuizNavigationToResult.cs",
+              "DocumentMoniker": "E:\\FAKS\\WEB2\\KvizHub.API\\Migrations\\20260502181757_AddQuizNavigationToResult.cs",
+              "RelativeDocumentMoniker": "Migrations\\20260502181757_AddQuizNavigationToResult.cs",
+              "ToolTip": "E:\\FAKS\\WEB2\\KvizHub.API\\Migrations\\20260502181757_AddQuizNavigationToResult.cs",
+              "RelativeToolTip": "Migrations\\20260502181757_AddQuizNavigationToResult.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-02T18:17:57.786Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{0ad07096-bba9-4900-a651-0598d26f6d24}"
             }
           ]
         }

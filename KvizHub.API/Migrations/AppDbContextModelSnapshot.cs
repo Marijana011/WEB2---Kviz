@@ -122,6 +122,8 @@ namespace KvizHub.API.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("QuizId");
+
                     b.HasIndex("UserId");
 
                     b.ToTable("Results");
@@ -173,11 +175,19 @@ namespace KvizHub.API.Migrations
 
             modelBuilder.Entity("KvizHub.API.Models.Result", b =>
                 {
+                    b.HasOne("KvizHub.API.Models.Quiz", "Quiz")
+                        .WithMany()
+                        .HasForeignKey("QuizId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
                     b.HasOne("KvizHub.API.Models.User", "User")
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Quiz");
 
                     b.Navigation("User");
                 });

@@ -2,17 +2,29 @@
 
   <h2>Create Quiz</h2>
 
-  <input [(ngModel)]="title" placeholder="Quiz title">
+  <input [(ngModel)]="quiz.title" name="title" placeholder="Quiz title">
 
-  <input [(ngModel)]="description" placeholder="Quiz description">
+  <input [(ngModel)]="quiz.description" name="description" placeholder="Quiz description">
 
-  <input [(ngModel)]="difficulty" placeholder="Difficulty">
+  <select [(ngModel)]="quiz.difficulty" name="difficulty">
+    <option value="">Select difficulty</option>
+    <option value="Easy">Easy</option>
+    <option value="Normal">Normal</option>
+    <option value="Hard">Hard</option>
+  </select>
 
-  <div *ngFor="let question of questions; let i = index" class="question-card">
+  <select [(ngModel)]="quiz.category" name="category">
+    <option value="">Select category</option>
+    <option *ngFor="let c of categories" [value]="c">
+    {{c}}
+    </option>
+</select>
+
+  <div *ngFor="let question of quiz.questions; let i = index" class="question-card">
 
     <h3>Question {{i + 1}}</h3>
 
-    <input [(ngModel)]="question.text" placeholder="Question text">
+    <input [(ngModel)]="question.text" name="text{{i}}" placeholder="Question text">
 
     <select [(ngModel)]="question.type" name="type{{i}}">
       <option value="Single">Single Choice</option>
@@ -22,10 +34,10 @@
     </select>
 
     <div *ngIf="question.type === 'Single' || question.type === 'Multiple'">
-      <input [(ngModel)]="question.optionA" placeholder="Option A">
-      <input [(ngModel)]="question.optionB" placeholder="Option B">
-      <input [(ngModel)]="question.optionC" placeholder="Option C">
-      <input [(ngModel)]="question.optionD" placeholder="Option D">
+      <input [(ngModel)]="question.optionA" name="a{{i}}" placeholder="Option A">
+      <input [(ngModel)]="question.optionB" name="b{{i}}" placeholder="Option B">
+      <input [(ngModel)]="question.optionC" name="c{{i}}" placeholder="Option C">
+      <input [(ngModel)]="question.optionD" name="d{{i}}" placeholder="Option D">
     </div>
 
     <div *ngIf="question.type === 'TrueFalse'">
@@ -37,12 +49,18 @@
       <p>User enters text answer</p>
     </div>
 
-    <input [(ngModel)]="question.correctAnswer" placeholder="Correct Answer">
+    <input [(ngModel)]="question.correctAnswer" name="correct{{i}}" placeholder="Correct Answer">
 
   </div>
 
   <button (click)="addQuestion()">Add Question</button>
+  <p class="error" *ngIf="errorMessage">{{errorMessage}}</p>
 
-  <button (click)="createQuiz()">Create Quiz</button>
+  <button (click)="createQuiz()" 
+  [disabled]="!quiz.title || !quiz.description || !quiz.difficulty || !quiz.category">Create Quiz</button>
+
+  <button class="back-btn" (click)="goBack()">
+    Back 
+  </button>
 
 </div>

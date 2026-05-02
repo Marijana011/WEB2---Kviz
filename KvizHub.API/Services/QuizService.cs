@@ -23,15 +23,16 @@ namespace KvizHub.API.Services
                 Title = dto.Title,
                 Description = dto.Description,
                 Difficulty = dto.Difficulty,
+                Category = dto.Category,
                 Questions = dto.Questions.Select(q => new Question
                 {
                     Text = q.Text,
                     Type = q.Type,
-                    OptionA = q.OptionA,
-                    OptionB = q.OptionB,
-                    OptionC = q.OptionC,
-                    OptionD = q.OptionD,
-                    CorrectAnswer = q.CorrectAnswer
+                    OptionA = q.OptionA.Trim(),
+                    OptionB = q.OptionB.Trim(),
+                    OptionC = q.OptionC.Trim(),
+                    OptionD = q.OptionD.Trim(),
+                    CorrectAnswer = q.CorrectAnswer.Trim()
                 }).ToList()
             };
 
@@ -48,7 +49,7 @@ namespace KvizHub.API.Services
             return quiz;
         }
 
-        public async Task<object> SubmitQuiz(SubmitQuizDto dto, string email)
+        public async Task<object> SubmitQuiz(SubmitQuizDto dto)
         {
             var questions = await _context.Questiones
                 .Where(q => q.QuizId == dto.QuizId)
@@ -60,17 +61,61 @@ namespace KvizHub.API.Services
             {
                 var question = questions.FirstOrDefault(q => q.Id == answer.QuestionId);
 
-                if (question != null && question.CorrectAnswer == answer.Answer)
+                if (question != null)
                 {
-                    score++;
-                }
+                    if (question.Type == "Multiple")
+                    {
+                        var correct = question.CorrectAnswer
+                            .Split(',')
+                            .Select(x => x.Trim().ToLower())
+                            .Where(x => !string.IsNullOrEmpty(x))
+                            .OrderBy(x => x);
 
+                        var user = answer.Answer
+                            .Split(',')
+                            .Select(x => x.Trim().ToLower())
+                            .Where (x => !string.IsNullOrEmpty(x))
+                            .OrderBy(x => x);
+
+
+                        if (correct.SequenceEqual(user))
+                        {
+                            score++;
+                        }
+                    }
+                    else
+                    {
+                        var correctAnswer = string.Join(", ",
+                        (question.CorrectAnswer ?? "")
+                        .Split(',')
+                        .Select(x => x.Trim())
+                        .Where(x => !string.IsNullOrEmpty(x)));
+
+                        var userAnswer = string.Join(", ",
+                        (answer.Answer ?? "")
+                        .Split(',')
+                        .Select(x => x.Trim())
+                        .Where(x => !string.IsNullOrEmpty(x)));
+
+                        if (correctAnswer == userAnswer)
+                        {
+                            score++;
+                        }
+                    }
+                }
             }
 
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
+            var currentUser = await _context.Users.FirstOrDefaultAsync(u => u.Email == dto.Email);
+
+            if(currentUser == null)
+            {
+                throw new Exception("User not found");
+            }
+
+
             var result = new Result
             {
-                UserId = user.Id,
+                UserId = currentUser.Id,
                 QuizId = dto.QuizId,
                 Score = score
             };
@@ -81,7 +126,48 @@ namespace KvizHub.API.Services
             return new
             {
                 score = score,
-                total = questions.Count()
+                total = questions.Count(),
+                details = dto.Answers.Select(answer =>
+                {
+                    var question = questions.First(q => q.Id == answer.QuestionId);
+
+                    bool isCorrect = false;
+
+                    if (question.Type == "Multiple")
+                    {
+                        var correct = question.CorrectAnswer
+                            .Split(',')
+                            .Select(x => x.Trim().ToLower())
+                            .Where(x => !string.IsNullOrEmpty(x))
+                            .OrderBy(x => x);
+
+                        var user = answer.Answer
+                            .Split(',')
+                            .Select(x => x.Trim().ToLower())
+                            .Where(x => !string.IsNullOrEmpty(x))
+                            .OrderBy(x => x);
+
+                        isCorrect = correct.SequenceEqual(user);
+                    }
+                    else
+                    {
+                        var correct = (question.CorrectAnswer ?? "").Trim().ToLower();
+                        var user = (answer.Answer ?? "").Trim().ToLower();
+
+                        isCorrect = correct == user;
+                    }
+
+                    return new
+                    {
+                        question = question.Text,
+                        userAnswer = string.Join(", ",(answer.Answer ?? "")
+                        .Split(',').Select(x => x.Trim()).Where(x => !string.IsNullOrEmpty(x))),
+
+                        correctAnswer = string.Join(", ",(question.CorrectAnswer ?? "")
+                        .Split(',').Select(x => x.Trim()).Where(x => !string.IsNullOrEmpty(x))),
+                        isCorrect = isCorrect
+                    };
+                })
             };
         }
 
@@ -101,6 +187,30 @@ namespace KvizHub.API.Services
 
             return results;
         }
+
+        public async Task<object> GetUserResults(string email)
+        {
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
+
+            if (user == null)
+                throw new Exception("User not found");
+
+            return await _context.Results
+                .Where(r => r.UserId == user.Id)
+                .Include(r => r.Quiz)
+                .ThenInclude(q => q.Questions)
+                .OrderByDescending(r => r.CreatedAt)
+                .Select(r => new
+                {
+                    quizId = r.QuizId,
+                    quizTitle = r.Quiz.Title,
+                    score = r.Score,
+                    total = r.Quiz.Questions.Count,
+                    date = r.CreatedAt
+                })
+                .ToListAsync();
+        }
+
 
         public async Task<List<Quiz>> GetAllQuizzes()
         {

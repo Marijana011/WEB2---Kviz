@@ -17,8 +17,24 @@
     </button>
   </div>
 
+  <div class="filters">
+  <input type="text" placeholder="Search quiz..."[(ngModel)]="searchTerm"(input)="applyFilters()">
+  <select [(ngModel)]="selectedCategory" (change)="applyFilters()">
+    <option value="">All categories</option>
+    <option *ngFor="let c of categories">{{c}}</option>
+  </select>
+
+  <select [(ngModel)]="selectedDifficulty" (change)="applyFilters()">
+    <option value="">All difficulty</option>
+    <option value="Easy">Easy</option>
+    <option value="Normal">Normal</option>
+    <option value="Hard">Hard</option>
+  </select>
+
+</div>
+
   <div class="quiz-grid">
-    <div *ngFor="let quiz of quizzes" class="quiz-card">
+    <div *ngFor="let quiz of filteredQuizzes" class="quiz-card">
       <h4>{{quiz.title}}</h4>
       <p>{{quiz.description}}</p>
 
@@ -26,7 +42,7 @@
         {{quiz.difficulty}}
       </span>
 
-      <button (click)="openQuiz(quiz.id)">Open Quiz</button>
+      <button (click)="openQuiz(quiz.id)">Start Quiz</button>
     </div>
   </div>
 

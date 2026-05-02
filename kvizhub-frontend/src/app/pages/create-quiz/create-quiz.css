@@ -2,29 +2,41 @@
 
 * {
   font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
 }
 
 .create-quiz-container {
-  max-width: 700px;
-  margin: 40px auto;
-  padding: 30px;
+  max-width: 600px;
+  margin: auto;
+  padding: 20px;
   background: linear-gradient(135deg, #dbeafe, #bfdbfe);
-  border-radius: 20px;
 }
 
 input, select {
   width: 100%;
-  margin: 10px 0;
   padding: 12px;
+  margin-top: 8px;
   border-radius: 10px;
-  border: none;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: #4f46e5;
+  box-shadow: 0 0 0 2px rgba(79,70,229,0.2);
 }
 
 .question-card {
-  background: white;
+  background: #fff;
   padding: 20px;
   margin-top: 20px;
-  border-radius: 15px;
+  border-radius: 16px;
+}
+
+.question-card input,
+.question-card select {
+  margin-bottom: 12px;
 }
 
 button {
@@ -34,4 +46,26 @@ button {
   border: none;
   border-radius: 10px;
   cursor: pointer;
+}
+
+button:disabled {
+  opacity: 0.6;
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.back-btn {
+  margin-bottom: 15px;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  background: rgb(77, 72, 72);
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+
+.back-btn:hover {
+  transform: scale(1.03);
 }

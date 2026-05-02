@@ -40,4 +40,6 @@ export class ApiService {
   createQuiz(data: any) {
     return this.http.post('http://localhost:5234/api/quiz', data);
   }
+
+  
 }

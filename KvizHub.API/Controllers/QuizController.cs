@@ -40,14 +40,15 @@ namespace KvizHub.API.Controllers
         }
 
         [HttpPost("submit")]
-        
-        public async Task<IActionResult> SubmitQuiz(SubmitQuizDto dto)
+        public async Task<IActionResult> SubmitQuiz([FromBody] SubmitQuizDto dto)
         {
-            var email = User.Identity.Name;
+            if(!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
 
-            var result = await _quizService.SubmitQuiz(dto, email);
+            var result = await _quizService.SubmitQuiz(dto);
             return Ok(result);
-
         }
 
 

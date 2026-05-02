@@ -6,51 +6,92 @@
 </div>
   <div *ngFor="let question of quiz.questions" class="question-box">
 
+
+    <div class="timer">
+      ⏱️ Time left:
+      {{Math.floor(timeLeft / 60)}}:{{timeLeft % 60 < 10 ? '0' + (timeLeft % 60) : timeLeft % 60}}
+    </div>
     <h4>{{question.text}}</h4>
 
     <div *ngIf="question.type === 'Single'">
       <label>
-        <input type="radio" name="q{{question.id}}" [value]="question.optionA">
+        <input type="radio" name="q{{question.id}}" [value]="question.optionA" [(ngModel)]="question.userAnswer" [disabled]="showResult">
         {{question.optionA}}
       </label>
 
       <label>
-        <input type="radio" name="q{{question.id}}" [value]="question.optionB">
+        <input type="radio" name="q{{question.id}}" [value]="question.optionB" [(ngModel)]="question.userAnswer" [disabled]="showResult">
         {{question.optionB}}
       </label>
 
       <label>
-        <input type="radio" name="q{{question.id}}" [value]="question.optionC">
+        <input type="radio" name="q{{question.id}}" [value]="question.optionC" [(ngModel)]="question.userAnswer" [disabled]="showResult">
         {{question.optionC}}
       </label>
 
       <label>
-        <input type="radio" name="q{{question.id}}" [value]="question.optionD">
+        <input type="radio" name="q{{question.id}}" [value]="question.optionD" [(ngModel)]="question.userAnswer" [disabled]="showResult">
         {{question.optionD}}
       </label>
     </div>
 
   <div *ngIf="question.type === 'Multiple'">
-    <label><input type="checkbox"> {{question.optionA}}</label>
-    <label><input type="checkbox"> {{question.optionB}}</label>
-    <label><input type="checkbox"> {{question.optionC}}</label>
-    <label><input type="checkbox"> {{question.optionD}}</label>
+    <label><input type="checkbox" (change)="toggleMultipleAnswer(question, question.optionA)" [disabled]="showResult"> {{question.optionA}}</label>
+    <label><input type="checkbox" (change)="toggleMultipleAnswer(question, question.optionB)" [disabled]="showResult"> {{question.optionB}}</label>
+    <label><input type="checkbox" (change)="toggleMultipleAnswer(question, question.optionC)" [disabled]="showResult"> {{question.optionC}}</label>
+    <label><input type="checkbox" (change)="toggleMultipleAnswer(question, question.optionD)" [disabled]="showResult"> {{question.optionD}}</label>
   </div>
 
   <div *ngIf="question.type === 'TrueFalse'">
-    <label><input type="radio" name="q{{question.id}}" value="True">True</label>
-    <label><input type="radio" name="q{{question.id}}" value="False">False</label>
+    <label><input type="radio" name="q{{question.id}}" value="True" [(ngModel)]="question.userAnswer" [disabled]="showResult">True</label>
+    <label><input type="radio" name="q{{question.id}}" value="False" [(ngModel)]="question.userAnswer" [disabled]="showResult">False</label>
   </div>
 
   <div *ngIf="question.type === 'Input'">
   <input
     type="text"
     [(ngModel)]="question.userAnswer"
+    [disabled]="showResult"
     [name]="'answer' + question.id"
     placeholder="Your answer">
   </div>
 </div>
 
-  <button class="back-btn" (click)="goBack()">Back</button>
+  <div class="quiz-actions">
+    <button class="back-btn" (click)="goBack()">Back</button>
+    <button class="submit-btn" (click)="submitQuiz()"  [disabled]="isSubmitted">Submit Quiz</button>
+  </div>
+</div>
 
+<h3 *ngIf="showResult">Quiz finished!</h3>
+<div *ngIf="showResult" class="result-box">
+  <h3>Your Score: {{score}} / {{total}}</h3>
+
+  <table class="result-table">
+    <thead>
+      <tr>
+        <th>Question</th>
+        <th>Your Answer</th>
+        <th>Correct Answer</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let r of resultDetails">
+        <td>{{r.question}}</td>
+        <td>{{r.userAnswer?.trim()}}</td>
+        <td>{{r.correctAnswer?.trim()}}</td>
+        <td>
+          <span [style.color]="r.isCorrect ? 'green' : 'red'">
+            {{r.isCorrect ? '✔' : '✘'}}
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div *ngIf="showResult" style="margin-top: 20px;">
+  <button (click)="goBack()" class="back-btn">Back to quizzes</button>
 </div>
