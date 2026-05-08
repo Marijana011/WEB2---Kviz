@@ -67,26 +67,30 @@ export class CreateQuiz {
   addQuestion() {
     const lastQuestion = this.quiz.questions[this.quiz.questions.length - 1];
 
-    if(!lastQuestion.text.trim() || !lastQuestion.correctAnswer.trim()){
+    this.errorMessage = '';
+
+    if (!lastQuestion.text.trim() || !lastQuestion.correctAnswer.trim()) {
       this.errorMessage = 'Please fill current question first!';
       return;
     }
 
-    if(lastQuestion.type === 'Single' || lastQuestion.type === 'Multiple'){
-      this.errorMessage = 'Please fill current question first!';
+  if (lastQuestion.type === 'Single' || lastQuestion.type === 'Multiple') {
+    if (!lastQuestion.optionA.trim() || !lastQuestion.optionB.trim()) {
+      this.errorMessage = 'Please fill at least Option A and B!';
       return;
     }
-
-    this.quiz.questions.push({
-      text: '',
-      type: 'Single',
-      optionA: '',
-      optionB: '',
-      optionC: '',
-      optionD: '',
-      correctAnswer: ''
-    });
   }
+
+  this.quiz.questions.push({
+    text: '',
+    type: 'Single',
+    optionA: '',
+    optionB: '',
+    optionC: '',
+    optionD: '',
+    correctAnswer: ''
+  });
+}
 
 
   isQuestionValid(q: any): boolean {

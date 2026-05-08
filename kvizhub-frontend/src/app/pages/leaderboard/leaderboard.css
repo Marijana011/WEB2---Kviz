@@ -1,0 +1,56 @@
+.leaderboard-container {
+  max-width: 900px;
+  margin: 50px auto;
+}
+
+.leaderboard-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+}
+
+.leaderboard-table th {
+  background: linear-gradient(135deg, #5b8def, #7b5cff);
+  color: white;
+  padding: 14px;
+}
+
+.leaderboard-table td {
+  padding: 14px;
+  text-align: center;
+  border-bottom: 1px solid #eee;
+}
+
+.leaderboard-table tr:hover {
+  background: #f8fafc;
+}
+
+.leaderboard-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.back-btn {
+  margin-top: 20px;
+  margin-left: 20px;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(
+    135deg,
+    #64748b,
+    #475569
+  ) !important;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+
+.back-btn:hover {
+  transform: scale(1.03);
+}

@@ -31,6 +31,7 @@
     <option value="Hard">Hard</option>
   </select>
 
+  <button class="btn-results" (click)="router.navigate(['/my-results'])">My Results</button>
 </div>
 
   <div class="quiz-grid">
@@ -43,6 +44,8 @@
       </span>
 
       <button (click)="openQuiz(quiz.id)">Start Quiz</button>
+
+      <button (click)="openLeaderboard(quiz.id)">Leaderboard</button>
     </div>
   </div>
 

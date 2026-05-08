@@ -1,28 +1,47 @@
-<div *ngIf="quiz" class="quiz-details">
+<div *ngIf="showStartScreen" class="start-screen">
 
-<div class="quiz-header">
   <h2>{{quiz.title}}</h2>
+
   <p>{{quiz.description}}</p>
+
+  <p><strong>Difficulty:</strong> {{quiz.difficulty}}</p>
+
+  <p><strong>Questions:</strong> {{quiz.questions.length}}</p>
+
+  <p><strong>Time:</strong> {{quiz.timeLimit}} seconds</p>
+
+  <div class="start-actions">
+    <button (click)="beginQuiz()">Start Quiz</button>
+    <button class="back-btn" (click)="goBack()">Back</button>
+  </div>
+
 </div>
-  <div *ngFor="let question of quiz.questions" class="question-box">
 
+<div *ngIf="!showStartScreen">
+  <div *ngIf="quiz" class="quiz-details">
 
-    <div class="timer">
-      ⏱️ Time left:
-      {{Math.floor(timeLeft / 60)}}:{{timeLeft % 60 < 10 ? '0' + (timeLeft % 60) : timeLeft % 60}}
+    <div class="quiz-header">
+      <h2>{{quiz.title}}</h2>
+      <p>{{quiz.description}}</p>
     </div>
-    <h4>{{question.text}}</h4>
+    <div *ngFor="let question of quiz.questions" class="question-box">
 
-    <div *ngIf="question.type === 'Single'">
-      <label>
-        <input type="radio" name="q{{question.id}}" [value]="question.optionA" [(ngModel)]="question.userAnswer" [disabled]="showResult">
-        {{question.optionA}}
-      </label>
+      <div class="timer">
+        ⏱️ Time left:
+        {{Math.floor(timeLeft / 60)}}:{{timeLeft % 60 < 10 ? '0' + (timeLeft % 60) : timeLeft % 60}}
+      </div>
+      <h4>{{question.text}}</h4>
 
-      <label>
-        <input type="radio" name="q{{question.id}}" [value]="question.optionB" [(ngModel)]="question.userAnswer" [disabled]="showResult">
-        {{question.optionB}}
-      </label>
+      <div *ngIf="question.type === 'Single'">
+        <label>
+          <input type="radio" name="q{{question.id}}" [value]="question.optionA" [(ngModel)]="question.userAnswer" [disabled]="showResult">
+          {{question.optionA}}
+        </label>
+
+        <label>
+          <input type="radio" name="q{{question.id}}" [value]="question.optionB" [(ngModel)]="question.userAnswer" [disabled]="showResult">
+          {{question.optionB}}
+        </label>
 
       <label>
         <input type="radio" name="q{{question.id}}" [value]="question.optionC" [(ngModel)]="question.userAnswer" [disabled]="showResult">
@@ -58,11 +77,15 @@
 </div>
 
   <div class="quiz-actions">
-    <button class="back-btn" (click)="goBack()">Back</button>
-    <button class="submit-btn" (click)="submitQuiz()"  [disabled]="isSubmitted">Submit Quiz</button>
+    <button class="submit-btn"
+          *ngIf="!fromResults"
+          (click)="submitQuiz()"
+          [disabled]="isSubmitted">
+          Submit Quiz
+    </button>
   </div>
 </div>
-
+</div>
 <h3 *ngIf="showResult">Quiz finished!</h3>
 <div *ngIf="showResult" class="result-box">
   <h3>Your Score: {{score}} / {{total}}</h3>
@@ -91,7 +114,9 @@
     </tbody>
   </table>
 </div>
-
-<div *ngIf="showResult" style="margin-top: 20px;">
-  <button (click)="goBack()" class="back-btn">Back to quizzes</button>
+<div *ngIf="showResult" class="result-actions">
+  <button (click)="goBack()" class="back-btn">
+    Back to quizzes
+  </button>
 </div>
+

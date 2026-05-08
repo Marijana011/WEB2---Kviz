@@ -11,7 +11,10 @@ export const routes: Routes = [
     {path: 'quizzes', component: Quizzes },
     {path: 'register', component: Register },
     {path: 'create-quiz', component: CreateQuiz},
-    {path: 'quiz-details/:id', component: QuizDetails}
+    {path: 'quiz-details/:id', component: QuizDetails},
+    {path: 'my-results', loadComponent: () => import('./pages/my-results/my-results').then(m => m.MyResults)},
+    {path: 'result-details', loadComponent: () => import('./pages/result-details/result-details').then(m => m.ResultDetails)},
+    {path: 'leaderboard/:id', loadComponent: () => import('./pages/leaderboard/leaderboard').then(m => m.Leaderboard)}
 ];
 
 

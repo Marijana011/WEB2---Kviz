@@ -18,7 +18,7 @@ export class QuizDetails implements OnInit {
   route = inject(ActivatedRoute);
   router = inject(Router);
   api = inject(ApiService);
-  cdr = inject(ChangeDetectorRef)
+  cdr = inject(ChangeDetectorRef);
 
   quiz: any;
 
@@ -35,19 +35,26 @@ export class QuizDetails implements OnInit {
 
   isSubmitted = false;
 
+  fromResults = false;
+
+  showStartScreen = true;
+
   ngOnInit() {
+    this.fromResults = history.state.fromResults;
+
     const id = this.route.snapshot.paramMap.get('id');
 
     this.api.getQuizById(id).subscribe((res: any) => {
       this.quiz = res;
 
-      this.quiz.questions.forEach((q: any) => {
-      q.userAnswer = '';
+      if(!this.fromResults){
+        this.quiz.questions.forEach((q: any) => {
+        q.userAnswer = '';
       });
 
       this.timeLeft = this.quiz.timeLimit;
-      this.cdr.detectChanges();
-      this.startTimer();
+    }
+    this.cdr.detectChanges();
     }); 
   }
 
@@ -77,6 +84,13 @@ export class QuizDetails implements OnInit {
     question.userAnswer = question.userAnswerArray.join(',');
   }
 
+  beginQuiz(){
+    this.showStartScreen = false;
+
+    this.cdr.detectChanges();
+
+    this.startTimer();
+  }
 
   submitQuiz(){ 
     if(this.isSubmitted) return;
@@ -101,6 +115,8 @@ export class QuizDetails implements OnInit {
         this.total = res.total;
         this.resultDetails = res.details;
         this.showResult = true;
+
+        localStorage.setItem('lastResultDetails', JSON.stringify(res.details));
 
         this.cdr.detectChanges();
       },

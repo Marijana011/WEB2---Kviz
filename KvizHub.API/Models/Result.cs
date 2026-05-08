@@ -11,5 +11,7 @@
         public User User { get; set; }
         public Quiz Quiz { get; set; }
 
+        public string DetailsJson { get; set; }
+
     }
 }

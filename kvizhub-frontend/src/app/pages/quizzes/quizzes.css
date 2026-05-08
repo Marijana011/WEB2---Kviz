@@ -1,13 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
-
-* {
-  font-family: 'Poppins', sans-serif;
-}
 
 .page-container {
   min-height: 100vh;
   padding: 40px;
-  background: linear-gradient(135deg, #667eea, #764ba2);
+ 
 }
 
 .profile-box {
@@ -72,7 +67,6 @@
 
   min-height: 230px;
   
-
   background: white;
   padding: 22px;
   border-radius: 18px;
@@ -108,7 +102,7 @@
 }
 
 .quiz-card button:hover {
-  background: #764ba2;
+  background: #6362ac;
 }
 
 .difficulty {
@@ -147,4 +141,15 @@
   padding: 8px 12px;
   border-radius: 8px;
   border: 1px solid #ccc;
+}
+
+.filters select{
+  cursor: pointer;
+}
+
+.btn-results{
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  cursor: pointer;
 }

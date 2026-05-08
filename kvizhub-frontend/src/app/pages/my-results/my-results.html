@@ -1,0 +1,32 @@
+<div class="results-container">
+
+  <h2>My Results</h2>
+
+  <div *ngIf="!loaded">Loading...</div>
+
+  <div *ngIf="loaded && results.length === 0">
+    No results yet.
+  </div>
+
+  <div *ngIf="loaded && results.length > 0">
+
+    <div *ngFor="let r of results" class="result-card">
+      <h3>{{r.quizTitle}}</h3>
+
+      <p>Date: {{r.date | date:'short'}}</p>
+
+      <p>
+        <span [ngClass]="(r.score / r.total) >= 0.5 ? 'score-good' : 'score-bad'">
+            {{r.score}} / {{r.total}}
+        </span>
+        ({{ (r.score / r.total * 100) | number:'1.0-0' }}%)
+      </p>
+
+      <button (click)="viewDetails(r)">View Details</button>
+    </div>
+
+  </div>
+
+  <button class="back-btn" (click)="goBack()">Back</button>
+
+</div>

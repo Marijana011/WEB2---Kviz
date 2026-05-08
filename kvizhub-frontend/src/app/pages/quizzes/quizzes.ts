@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { ChangeDetectorRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { start } from 'node:repl';
 
 @Component({
   selector: 'app-quizzes',
@@ -61,7 +62,9 @@ export class Quizzes implements OnInit{
   }
 
   openQuiz(id: number){
-    this.router.navigate(['/quiz-details', id]);
+    this.router.navigate(['/quiz-details', id], {
+      state: {start: false }
+    });
   }
 
   applyFilters(){
@@ -84,5 +87,9 @@ export class Quizzes implements OnInit{
     return matchesSearch && matchesCategory && matchesDifficulty;
   });
 }
+
+  openLeaderboard(id:number){
+    this.router.navigate(['/leaderboard', id]);
+  }
 
 }

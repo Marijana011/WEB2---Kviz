@@ -3,6 +3,7 @@ using KvizHub.API.DTOs;
 using KvizHub.API.Models;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.EntityFrameworkCore;
+using System.Text.Json;
 
 
 namespace KvizHub.API.Services
@@ -24,6 +25,7 @@ namespace KvizHub.API.Services
                 Description = dto.Description,
                 Difficulty = dto.Difficulty,
                 Category = dto.Category,
+                TimeLimit = dto.Questions.Count * 30,
                 Questions = dto.Questions.Select(q => new Question
                 {
                     Text = q.Text,
@@ -113,11 +115,47 @@ namespace KvizHub.API.Services
             }
 
 
+            var details = new List<object>();
+
+            foreach (var a in dto.Answers)
+            {
+                var question = questions.FirstOrDefault(q => q.Id == a.QuestionId);
+
+                if (question == null) continue;
+
+                var correctAnswers = (question.CorrectAnswer ?? "")
+                    .Split(',')
+                    .Select(x => x.Trim())
+                    .Where(x => !string.IsNullOrEmpty(x))
+                    .OrderBy(x => x)
+                    .ToList();
+
+                var userAnswers = (a.Answer ?? "")
+                    .Split(',')
+                    .Select(x => x.Trim())
+                    .Where(x => !string.IsNullOrEmpty(x))
+                    .OrderBy(x => x)
+                    .ToList();
+
+                var isCorrect = correctAnswers.SequenceEqual(userAnswers);
+
+                details.Add(new
+                {
+                    questionText = question.Text,
+                    userAnswer = string.Join(", ", userAnswers),
+                    correctAnswer = string.Join(", ", correctAnswers),
+                    isCorrect = isCorrect
+                });
+            }
+
+
             var result = new Result
             {
                 UserId = currentUser.Id,
                 QuizId = dto.QuizId,
-                Score = score
+                Score = score,
+                CreatedAt = DateTime.UtcNow,
+                DetailsJson = JsonSerializer.Serialize(details)
             };
 
             _context.Results.Add(result);
@@ -190,31 +228,59 @@ namespace KvizHub.API.Services
 
         public async Task<object> GetUserResults(string email)
         {
-            var user = await _context.Users.FirstOrDefaultAsync(u => u.Email == email);
+            var cleanEmail = email.Trim().ToLower();
+
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Email.ToLower() == cleanEmail);
 
             if (user == null)
-                throw new Exception("User not found");
+                return new List<object>();
 
-            return await _context.Results
-                .Where(r => r.UserId == user.Id)
-                .Include(r => r.Quiz)
-                .ThenInclude(q => q.Questions)
-                .OrderByDescending(r => r.CreatedAt)
-                .Select(r => new
-                {
-                    quizId = r.QuizId,
-                    quizTitle = r.Quiz.Title,
-                    score = r.Score,
-                    total = r.Quiz.Questions.Count,
-                    date = r.CreatedAt
-                })
-                .ToListAsync();
-        }
+            var results = await _context.Results
+            .Where(r => r.UserId == user.Id)
+            .Include(r => r.Quiz)
+            .Select(r => new
+            {
+                quizTitle = r.Quiz.Title,
+                score = r.Score,
+                total = r.Quiz.Questions.Count,
+                date = r.CreatedAt,
+                quizId = r.QuizId,
+                details = r.DetailsJson
+            })
+            .ToListAsync();
+                return results;
+            }
 
 
         public async Task<List<Quiz>> GetAllQuizzes()
         {
             return await _context.Quizzes.ToListAsync();
+        }
+
+        public async Task<object> GetLeaderboard(int id)
+        {
+            var results = await _context.Results
+                .Where(r => r.QuizId == id)
+                .Include(r => r.User)
+                .ToListAsync();
+
+            var leaderboard = results
+                .GroupBy(r => r.User.Username)
+                .Select(g => g
+                    .OrderByDescending(r => r.Score)
+                    .ThenBy(r => r.CreatedAt)
+                    .First())
+                .OrderByDescending(r => r.Score)
+                .ThenBy(r => r.CreatedAt)
+                .Select(r => new
+                {
+                    username = r.User.Username,
+                    score = r.Score,
+                    createdAt = r.CreatedAt
+                })
+                .ToList();
+
+            return leaderboard;
         }
     }
 }

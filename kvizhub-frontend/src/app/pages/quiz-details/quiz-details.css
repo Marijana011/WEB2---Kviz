@@ -9,6 +9,49 @@ body {
   background: linear-gradient(135deg, #dbeafe, #bfdbfe);
 }
 
+.start-screen {
+  max-width: 600px;
+  margin: 80px auto;
+  background: white;
+  padding: 40px;
+  border-radius: 18px;
+  text-align: center;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+}
+
+.start-screen h2 {
+  font-size: 32px;
+  margin-bottom: 15px;
+  color: #2c3e50;
+}
+
+.start-screen p {
+  font-size: 16px;
+  margin: 10px 0;
+  color: #555;
+}
+
+.start-screen strong {
+  color: #2c3e50;
+}
+
+.start-screen button {
+  margin-top: 25px;
+  color: white;
+  border: none;
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.start-screen button:hover {
+  transform: translateY(-2px);
+  opacity: 0.95;
+}
+
+
 .quiz-details {
   max-width: 850px;
   margin: 40px auto;
@@ -91,26 +134,14 @@ body {
 }
 
 
-.back-btn {
-  margin-top: 35px;
-  padding: 13px 28px;
-  background: rgb(77, 72, 72);
-  color: white;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  font-size: 15px;
-  transition: 0.3s;
-}
-
-.back-btn:hover {
-  transform: scale(1.03);
-}
 
 .submit-btn {
   margin-top: 35px;
   padding: 13px 28px;
-  background: rgb(7, 196, 79);
+  background: linear-gradient(
+    135deg,
+    #22c55e,
+    #16a34a) !important;
   color: white;
   border: none;
   border-radius: 12px;
@@ -125,6 +156,18 @@ body {
 
 .submit-btn:hover:not(:disabled) {
   background: #16a34a;
+}
+
+.back-btn {
+  background: linear-gradient(
+    135deg,
+    #64748b,
+    #475569
+  ) !important;
+}
+
+.back-btn:hover {
+  transform: scale(1.03);
 }
 
 
@@ -155,7 +198,16 @@ label:hover {
   margin-bottom: 20px;
 }
 
+.result-box {
+  margin-bottom: 40px;
+}
 
+.result-actions {
+  display: flex;
+  justify-content: left;
+  padding-left: 10px;
+  padding-bottom: 15px;
+}
 
 .result-table {
   width: 100%;
@@ -219,3 +271,11 @@ label:hover {
 .result-table tr {
   transition: all 0.2s ease;
 }
+
+.start-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 25px;
+}
+

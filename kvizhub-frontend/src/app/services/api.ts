@@ -41,5 +41,12 @@ export class ApiService {
     return this.http.post('http://localhost:5234/api/quiz', data);
   }
 
-  
+  getUserResults(email: string) {
+    return this.http.get(`${this.baseUrl}/Quiz/user-results?email=${email}`);
+  }
+
+  getLeaderboard(id:any){
+    return this.http.get(`${this.baseUrl}/quiz/${id}/leaderboard`);
+  }
+
 }

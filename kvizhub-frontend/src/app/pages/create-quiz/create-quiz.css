@@ -1,9 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
-
-* {
-  font-family: 'Poppins', sans-serif;
-  box-sizing: border-box;
-}
 
 .create-quiz-container {
   max-width: 600px;
@@ -59,7 +53,11 @@ button:disabled {
   padding: 8px 14px;
   border: none;
   border-radius: 8px;
-  background: rgb(77, 72, 72);
+  background: linear-gradient(
+    135deg,
+    #64748b,
+    #475569
+  ) !important;
   color: white;
   cursor: pointer;
   transition: 0.3s;

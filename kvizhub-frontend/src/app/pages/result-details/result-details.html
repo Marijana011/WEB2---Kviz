@@ -1,0 +1,33 @@
+<div class="details-container">
+
+  <h2>{{result.quizTitle}}</h2>
+
+  <p class="score">
+    Score: {{result.score}} / {{result.total}}
+  </p>
+
+  <table class="result-table">
+    <thead>
+      <tr>
+        <th>Question</th>
+        <th>Your Answer</th>
+        <th>Correct Answer</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr *ngFor="let r of details">
+        <td>{{r.question}}</td>
+        <td>{{r.userAnswer}}</td>
+        <td>{{r.correctAnswer}}</td>
+        <td>
+          <span [style.color]="r.isCorrect ? 'green' : 'red'">
+            {{r.isCorrect ? '✔' : '✘'}}
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
